@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import api from '../apis/api'
 import index from '../index.css'
-import NameSearch from './NameSearch'
+import SearchBar from './SearchBar'
 import StudentCards from './StudentCards'
 window.mobileCheck = function() {
   let check = false;
@@ -15,6 +15,7 @@ const Index = () => {
   const [heightModifier,setHeightModifier] = useState(1)
   const [mobileFontModifier, setMobileFontModifier] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
+  const [mobileInfoFontModifier, setMobileInfoFontModifier] = useState(1)
 
   const getData = async () => {
     let tempData = await api.get('/')
@@ -24,22 +25,24 @@ const Index = () => {
   useEffect(()=> {
     getData()
     const isMobile = window.mobileCheck()
+
     if(isMobile){
       setMarginModifier(0)
       setHeightModifier(100/80)
-      setMobileFontModifier(0.65)
+      setMobileFontModifier(0.45)
+      setMobileInfoFontModifier(0.65)
     }
   },[])
 
   return(
-    <>
+
 
     <div style={{marginTop:`${4*marginModifier}%`,marginRight:`${20*marginModifier}%`,marginLeft:`${20*marginModifier}%`,height:`${80*heightModifier}vh`}} className='studentListHolder'>
-      <NameSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <StudentCards searchTerm={searchTerm} data={data} mobileFontModifier={mobileFontModifier}/>
+      <SearchBar placeHolder='Search by name' cssClass='nameSearch' searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <StudentCards mobileInfoFontModifier={mobileInfoFontModifier} isMobile={window.mobileCheck()} searchTerm={searchTerm} data={data} mobileFontModifier={mobileFontModifier}/>
     </div>
 
-    </>
+
   )
 }
 

@@ -55,17 +55,39 @@ code {
   display:flex;
   flex-direction:row;
   flex-wrap: nowrap;
-  border-bottom:2px ridge rgba(	239, 239, 239, .35);;
+
   white-space:nowrap;
-  overflow-x:scroll;
+
   align-items: center;
-  padding-bottom:1vh;
+  padding-bottom:0.25em;
+
+}
+
+.testScoresCard{
+  display:flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  margin-bottom: 1em;
 }
 
 .studentCard::-webkit-scrollbar {
     display: none;  /* Safari and Chrome */
 }
 
+.studentCardHolder{
+  display:grid;
+  border-bottom:2px ridge rgba(	239, 239, 239, .35);
+}
+
+.testScore {
+  padding-right:1em;
+  margin-left:2em;
+}
+
+.testScoreHolder{
+  display:flex;
+
+}
 
 .infoHolder {
   flex:3;
@@ -73,17 +95,42 @@ code {
 
 .image {
   flex:0.3;
-  margin-left:2vh;
-  margin-right:2vh;
-  height:12vh;
+  margin-left:1.5em;
+  margin-right:1.5em;
+  min-width:7em;
+  max-width:7em;
   border-radius:100%;
   border: 2px ridge rgba(	239, 239, 239, .45);;
 }
 
+.mobileImage {
+  min-width:3em;
+  max-width:3em;
+}
+
+
+
+.imageSpacer{
+  flex:0.3;
+  margin-left:1.5em;
+  margin-right:1.5em;
+  min-width:7em;
+  max-width:7em;
+  border-radius:100%;
+  border: 2px ridge rgba(	239, 239, 239, .45);;
+}
+
+.mobileImageSpacer {
+  min-width:3em;
+  max-width:3em;
+}
+
 .infoDiv {
+  padding-right:1em;
   margin-top:0.5em;
   margin-bottom:0.5em;
   margin-left:2em;
+
 }
 
 .nameSearch {
@@ -121,4 +168,22 @@ textarea:focus, input:focus{
 ::-ms-input-placeholder { /* Microsoft Edge */
   font-family: Raleway-VariableFont_wght;
   opacity: 0.5;
+}
+
+.infoNameDiv{
+  display:flex;
+  justify-content: space-between;;
+}
+
+.expandButton {
+  border:none;
+  background-color: inherit;
+  letter-spacing:0.001em;
+  margin-top:0.4em;
+  margin-right:0.4em;
+  color:#b0acac;
+}
+
+.expandButton:hover {
+  cursor:pointer;
 }

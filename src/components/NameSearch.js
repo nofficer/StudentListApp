@@ -7,7 +7,7 @@ const NameSearch = ({searchTerm,setSearchTerm}) => {
 
   return (
     <div className='nameSearchHolder'>
-      <input onChange={handleInputChange} style={{fontSize:'20px'}} type="text" className='nameSearch' placeholder='Search by name'/>
+      <input onChange={handleInputChange} style={{fontSize:'20px'}} value={searchTerm} type="text" className='nameSearch' placeholder='Search by name'/>
     </div>
   )
 }
