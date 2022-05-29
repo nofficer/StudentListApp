@@ -1,13 +1,124 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Raleway-VariableFont_wght;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #efefef;
+  overflow-y: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+@font-face {
+  font-family: 'Raleway-VariableFont_wght';
+  src: local('Raleway-VariableFont_wght'), url(./fonts/Raleway-VariableFont_wght.ttf) format('opentype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+@font-face {
+  font-family: 'Raleway-Bold';
+  src: local('Raleway-Bold'), url(./fonts/Raleway-Bold.ttf) format('opentype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+
+
+.studentListHolder {
+  display:block;
+
+
+  background-color: #ffffff;
+  border-radius: 1%;
+  overflow-y: scroll;
+
+  border: 1px solid #ffffff;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.studentListHolder::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.studentListHolder:hover {
+
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+.studentCard {
+  display:flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  border-bottom:2px ridge rgba(	239, 239, 239, .35);;
+  white-space:nowrap;
+  overflow-x:scroll;
+  align-items: center;
+  padding-bottom:1vh;
+}
+
+.studentCard::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+
+.infoHolder {
+  flex:3;
+}
+
+.image {
+  flex:0.3;
+  margin-left:2vh;
+  margin-right:2vh;
+  height:12vh;
+  border-radius:100%;
+  border: 2px ridge rgba(	239, 239, 239, .45);;
+}
+
+.infoDiv {
+  margin-top:0.5em;
+  margin-bottom:0.5em;
+  margin-left:2em;
+}
+
+.nameSearch {
+  width:96%;
+  display:block;
+  margin : 0 auto;
+  margin-top: 0.5em;
+  height:2em;
+  border:none;
+  border-bottom:2px ridge rgba(	239, 239, 239, .35);;
+}
+
+.nameSearch:focus {
+  border-bottom:2px ridge rgba(	239, 239, 239);;
+}
+
+.nameSearchHolder{
+  display:flex;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: Raleway-VariableFont_wght;
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: Raleway-VariableFont_wght;
+  opacity: 0.5;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  font-family: Raleway-VariableFont_wght;
+  opacity: 0.5;
 }
