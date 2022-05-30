@@ -84,6 +84,10 @@ code {
   margin-left:2em;
 }
 
+.tagInputDiv {
+
+}
+
 .testScoreHolder{
   display:flex;
 
@@ -106,6 +110,8 @@ code {
 .mobileImage {
   min-width:3em;
   max-width:3em;
+  border-radius:100%;
+  border: 2px ridge rgba(	239, 239, 239, .45);
 }
 
 
@@ -123,6 +129,7 @@ code {
 .mobileImageSpacer {
   min-width:3em;
   max-width:3em;
+
 }
 
 .infoDiv {
@@ -137,6 +144,15 @@ code {
   width:96%;
   display:block;
   margin : 0 auto;
+  margin-top: 0.5em;
+  height:2em;
+  border:none;
+  border-bottom:2px ridge rgba(	239, 239, 239, .35);;
+}
+
+.addTagInput {
+  width:30%;
+  display:block;
   margin-top: 0.5em;
   height:2em;
   border:none;
@@ -186,4 +202,26 @@ textarea:focus, input:focus{
 
 .expandButton:hover {
   cursor:pointer;
+}
+
+.tagDiv{
+  background-color: #e0dcdc;
+  display:inline-block;
+  border-radius: 5px;
+  margin:0.2em;
+  height:2em;
+  padding:0.3em;
+}
+
+.Centerer
+{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.Centered
+{
+    vertical-align: middle;
+    display: inline-block;
 }

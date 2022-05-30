@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 
 import StudentCard from './StudentCard'
 
 
-const StudentCards = ({data,mobileFontModifier,searchTerm,isMobile,mobileInfoFontModifier}) => {
+const StudentCards = ({data,mobileFontModifier,searchTerm,isMobile,mobileInfoFontModifier,tagSearchTerm}) => {
+  const [tagObj, setTagObj] = useState({})
+
+
 
   const renderData = () => {
 
     if(Array.isArray(data)){
       return data.map((item) => {
-        return <StudentCard mobileInfoFontModifier={mobileInfoFontModifier} isMobile={isMobile} key={item.firstName+item.lastName} item={item} searchTerm={searchTerm} mobileFontModifier={mobileFontModifier}/>
+        return <StudentCard tagSearchTerm={tagSearchTerm} tagObj={tagObj} setTagObj={setTagObj} data={data} setData={data} mobileInfoFontModifier={mobileInfoFontModifier} isMobile={isMobile} key={item.id} item={item} searchTerm={searchTerm} mobileFontModifier={mobileFontModifier}/>
       })
     }
     else{

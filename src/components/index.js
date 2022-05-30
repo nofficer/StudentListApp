@@ -16,7 +16,7 @@ const Index = () => {
   const [mobileFontModifier, setMobileFontModifier] = useState(1)
   const [searchTerm, setSearchTerm] = useState('')
   const [mobileInfoFontModifier, setMobileInfoFontModifier] = useState(1)
-
+  const [tagSearchTerm, setTagSearchTerm] = useState('')
   const getData = async () => {
     let tempData = await api.get('/')
     setData(tempData.data.students)
@@ -39,7 +39,8 @@ const Index = () => {
 
     <div style={{marginTop:`${4*marginModifier}%`,marginRight:`${20*marginModifier}%`,marginLeft:`${20*marginModifier}%`,height:`${80*heightModifier}vh`}} className='studentListHolder'>
       <SearchBar placeHolder='Search by name' cssClass='nameSearch' searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <StudentCards mobileInfoFontModifier={mobileInfoFontModifier} isMobile={window.mobileCheck()} searchTerm={searchTerm} data={data} mobileFontModifier={mobileFontModifier}/>
+      <SearchBar placeHolder='Search by tag' cssClass='nameSearch' searchTerm={tagSearchTerm}setSearchTerm={setTagSearchTerm} />
+      <StudentCards tagSearchTerm={tagSearchTerm} setData={setData} mobileInfoFontModifier={mobileInfoFontModifier} isMobile={window.mobileCheck()} searchTerm={searchTerm} tagSearchTerm={tagSearchTerm} data={data} mobileFontModifier={mobileFontModifier}/>
     </div>
 
 
