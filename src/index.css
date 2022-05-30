@@ -111,9 +111,17 @@ code {
   min-width:3em;
   max-width:3em;
   border-radius:100%;
+  margin-left: .2em;
   border: 2px ridge rgba(	239, 239, 239, .45);
 }
 
+.tabletImage {
+  min-width:7em;
+  max-width:7em;
+  border-radius:100%;
+  margin-left: .2em;
+  border: 2px ridge rgba(	239, 239, 239, .45);
+}
 
 
 .imageSpacer{
@@ -129,7 +137,7 @@ code {
 .mobileImageSpacer {
   min-width:3em;
   max-width:3em;
-
+  margin-left: .2em;
 }
 
 .infoDiv {
@@ -188,7 +196,9 @@ textarea:focus, input:focus{
 
 .infoNameDiv{
   display:flex;
-  justify-content: space-between;;
+  justify-content: space-between;
+  letter-spacing:0.001em;
+  margin-top:0.25em;
 }
 
 .expandButton {
@@ -211,6 +221,7 @@ textarea:focus, input:focus{
   margin:0.2em;
   height:2em;
   padding:0.3em;
+
 }
 
 .Centerer
@@ -224,4 +235,45 @@ textarea:focus, input:focus{
 {
     vertical-align: middle;
     display: inline-block;
+}
+
+
+/* CSS */
+.button {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(209,213,219);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #111827;
+
+
+  font-weight: 600;
+  line-height: 0.1rem;
+  padding: .5rem 0.5rem;
+  text-align: center;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  min-width: 4rem;
+  margin-left:1em;
+}
+
+.button:hover {
+  background-color: rgb(249,250,251);
+}
+
+.button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.button:focus-visible {
+  box-shadow: none;
+}
+
+.addTagForm {
+  display:flex;
 }

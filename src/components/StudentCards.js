@@ -1,9 +1,9 @@
 import React, { useEffect,useState } from 'react'
-
+import index from '../index.css'
 import StudentCard from './StudentCard'
 
 
-const StudentCards = ({data,mobileFontModifier,searchTerm,isMobile,mobileInfoFontModifier,tagSearchTerm}) => {
+const StudentCards = ({data,mobileFontModifier,searchTerm,isMobile,mobileInfoFontModifier,tagSearchTerm,tablet}) => {
   const [tagObj, setTagObj] = useState({})
 
 
@@ -12,7 +12,7 @@ const StudentCards = ({data,mobileFontModifier,searchTerm,isMobile,mobileInfoFon
 
     if(Array.isArray(data)){
       return data.map((item) => {
-        return <StudentCard tagSearchTerm={tagSearchTerm} tagObj={tagObj} setTagObj={setTagObj} data={data} setData={data} mobileInfoFontModifier={mobileInfoFontModifier} isMobile={isMobile} key={item.id} item={item} searchTerm={searchTerm} mobileFontModifier={mobileFontModifier}/>
+        return <StudentCard tablet={tablet} tagSearchTerm={tagSearchTerm} tagObj={tagObj} setTagObj={setTagObj} data={data} setData={data} mobileInfoFontModifier={mobileInfoFontModifier} isMobile={isMobile} key={item.id} item={item} searchTerm={searchTerm} mobileFontModifier={mobileFontModifier}/>
       })
     }
     else{

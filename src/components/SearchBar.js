@@ -1,5 +1,5 @@
 import React from 'react'
-
+import index from '../index.css'
 const SearchBar = ({searchTerm,setSearchTerm,placeHolder='Search',cssClass}) => {
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value)
