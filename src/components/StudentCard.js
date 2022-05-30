@@ -25,14 +25,15 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
     }
   }
 
+// Expand the student card to show individual test scores
   const handleExpand = () => {
     setExpanded(true)
   }
-
+// Close the expanded student card
   const handleClose = () => {
     setExpanded(false)
   }
-
+// Submit a new tag to be added to the student
   const handleSubmit = (e) =>{
     e.preventDefault();
     let newTags = tags
@@ -43,13 +44,13 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
       setTagInput('')
     }
   }
-
+// Render the tags on the student card
   const renderTags = () => {
     return tags.map((tag,i) => {
       return <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} key={i+'_'+tag} className='tagDiv'> <span className="Centerer"></span> <span style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='Centered'>{tag}</span> <span className="Centerer"></span></div>
     })
   }
-
+// Render the test scores on the student card only IF the + has been clicked and the student card expanded
   const renderTestScores = () => {
     if(Array.isArray(item.grades)){
       return item.grades.map((grade,i) => {
@@ -106,8 +107,8 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
   let firstName = item['firstName'].toLowerCase()
   let lastName = item['lastName'].toLowerCase()
   // I'm using a css styled div to keep the individual test scores in the testScoresCard in line with the student info that sits above it. I chose this route because I wanted to attempt this assignment without using Material UI. Although if I were to build with material UI this would be accomplished fairly easily using a grid.
-  // Check if search term exists in the students first OR last name
-// need button for mobile
+  // I use inline css at times when I need to programmatically alter the font, the alternative is to conditionally use a different CSS class which I have utilized in the case of the image.
+  // We conditionally render a button for mobile users to add tags as there is no way for the
   if( checkSearchTerms(firstName,lastName)){
     return (
       <div className='studentCardHolder'>
@@ -132,7 +133,7 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
             <form className='addTagForm' onSubmit={handleSubmit}>
 
                <input style={{fontSize:`${16*mobileInfoFontModifier}px`}}  value={tagInput} onChange={(e) => setTagInput(e.target.value)} type="text" className='addTagInput' placeholder='Add a tag' />
-               {isMobile ? <button style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='button' type="submit">Add</button> : null}
+               
 
             </form>
           </div>
@@ -146,5 +147,7 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
   }
 
 }
+
+
 
 export default StudentCard
