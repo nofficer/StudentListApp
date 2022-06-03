@@ -100,7 +100,7 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
     else if(tagSearchTerm === '' && (firstName.includes(searchTerm.toLowerCase()) || lastName.includes(searchTerm.toLowerCase()) || firstAndLast.includes(searchTerm.toLowerCase())) ){
       return true
     }
-    else if(checkTags() && (firstName.includes(searchTerm.toLowerCase()) || lastName.includes(searchTerm.toLowerCase())) ){
+    else if(checkTags() && (firstName.includes(searchTerm.toLowerCase()) || lastName.includes(searchTerm.toLowerCase())) || firstAndLast.includes(searchTerm.toLowerCase())){
       return true
     }
 
