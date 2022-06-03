@@ -36,8 +36,9 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
 // Submit a new tag to be added to the student
   const handleSubmit = (e) =>{
     e.preventDefault();
-    let newTags = tags
-    let trimmed = tagInput.trim()
+    let newTags = [...tags]
+    let trimmed = tagInput
+    trimmed = trimmed.trim()
     if(trimmed.length>0){
       newTags.push(trimmed)
       setTags(newTags)
@@ -47,7 +48,7 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
 // Render the tags on the student card
   const renderTags = () => {
     return tags.map((tag,i) => {
-      return <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} key={i+'_'+tag} className='tagDiv'> <span className="Centerer"></span> <span style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='Centered'>{tag}</span> <span className="Centerer"></span></div>
+      return <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} key={i+'_'+tag+item.id} className='tagDiv'> <span className="Centerer"></span> <span style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='Centered'>{tag}</span> <span className="Centerer"></span></div>
     })
   }
 // Render the test scores on the student card only IF the + has been clicked and the student card expanded
@@ -89,13 +90,14 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
   }
 
   const checkSearchTerms = (firstName,lastName) => {
+    let firstAndLast = firstName + ' ' + lastName
     if(searchTerm === '' && tagSearchTerm === ''){
       return true
     }
     else if(searchTerm === '' && checkTags()){
       return true
     }
-    else if(tagSearchTerm === '' && (firstName.includes(searchTerm.toLowerCase()) || lastName.includes(searchTerm.toLowerCase())) ){
+    else if(tagSearchTerm === '' && (firstName.includes(searchTerm.toLowerCase()) || lastName.includes(searchTerm.toLowerCase()) || firstAndLast.includes(searchTerm.toLowerCase())) ){
       return true
     }
     else if(checkTags() && (firstName.includes(searchTerm.toLowerCase()) || lastName.includes(searchTerm.toLowerCase())) ){
@@ -133,7 +135,7 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
             <form className='addTagForm' onSubmit={handleSubmit}>
 
                <input style={{fontSize:`${16*mobileInfoFontModifier}px`}}  value={tagInput} onChange={(e) => setTagInput(e.target.value)} type="text" className='addTagInput' placeholder='Add a tag' />
-               
+
 
             </form>
           </div>
