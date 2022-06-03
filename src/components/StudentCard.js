@@ -133,7 +133,7 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
         <div  className='testScoresCard'  >
        <div style={{opacity:0}} className={imageSpacerClass}> </div>
           <div className='infoHolder'>
-          {expanded ? renderTestScores() : null}
+          {expanded && renderTestScores()}
           <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='testScore' >{renderTags()}</div>
           <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='testScore'>
             <form className='addTagForm' onSubmit={handleSubmit}>
