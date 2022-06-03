@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect,useMemo} from 'react'
 import { FaPlus, FaMinus } from "react-icons/fa";
 import index from '../index.css'
 const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFontModifier,data,setData,tagSearchTerm,tablet}) => {
@@ -6,6 +6,8 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
   const [imageSpacerClass,setImageSpacerClass] = useState('imageSpacer')
   const [tagInput,setTagInput] = useState('')
   const [tags,setTags] = useState([])
+
+
 
   useEffect(() => {
     if(isMobile && tablet===1){
@@ -24,6 +26,7 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
       return 'N/A'
     }
   }
+  const gpa = useMemo(() => renderGPA(item),[item])
 
 // Expand the student card to show individual test scores
   const handleExpand = () => {
@@ -47,6 +50,7 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
   }
 // Render the tags on the student card
   const renderTags = () => {
+
     return tags.map((tag,i) => {
       return <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} key={i+'_'+tag+item.id} className='tagDiv'> <span className="Centerer"></span> <span style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='Centered'>{tag}</span> <span className="Centerer"></span></div>
     })
@@ -123,7 +127,7 @@ const StudentCard = ({mobileFontModifier,searchTerm,item,isMobile,mobileInfoFont
             </div>
             <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='infoDiv'>Email: {item['email']}</div>
             <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='infoDiv'>Skill: {item['skill']}</div>
-            <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='infoDiv'>Average: {renderGPA(item)}</div>
+            <div style={{fontSize:`${16*mobileInfoFontModifier}px`}} className='infoDiv'>Average: {gpa}</div>
           </div>
         </div>
         <div  className='testScoresCard'  >
